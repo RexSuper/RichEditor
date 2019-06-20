@@ -16,4 +16,4 @@ I would like to thank "wasabeef/richeditor-android" in particular, because Rich 
 
 Thank you also for HTML Mogul @ZX aha
 
-
+[原理讲解](https://blog.csdn.net/qq_28844947/article/details/91870015 "原理讲解")
