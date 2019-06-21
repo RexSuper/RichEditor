@@ -96,7 +96,6 @@ RE.setVerticalAlign = function(align) {
 
 RE.setPlaceholder = function(placeholder) {
     RE.editor.setAttribute("placeholder", placeholder);
-    RE.editor.style.verticalAlign = align;
 }
 
 RE.setInputEnabled = function(inputEnabled) {

@@ -20,25 +20,55 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="insertImage"
-                android:text="insertImage" />
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button_shap"
+                android:gravity="center"
+                android:onClick="openTools"
+                android:text="OpenTools"
+                android:textColor="@android:color/white"
+                android:textSize="13sp" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="newLine"
-                android:text="newLine" />
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/button_shap"
+                android:gravity="center"
+                android:onClick="getHtmlCode"
+                android:text="HtmlCode"
+                android:textColor="@android:color/white"
+                android:textSize="13sp" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/button_shap"
+                android:gravity="center"
+                android:onClick="publish"
+                android:text="publish"
+                android:textColor="@android:color/white"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/button_shap"
+                android:gravity="center"
                 android:onClick="getCurrChooseParams"
-                android:text="getParams" />
+                android:text="getParams"
+                android:textColor="@android:color/white"
+                android:textSize="13sp" />
+
+
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -50,21 +80,47 @@
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:onClick="publish"
-        android:text="publish" />
 
-    <GridView
-        android:id="@+id/gvList"
+    <FrameLayout
+        android:id="@+id/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:horizontalSpacing="10dp"
-        android:numColumns="auto_fit"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp" />
+        android:background="@drawable/bg_choose_img"
+        android:visibility="gone">
 
+        <GridView
+            android:id="@+id/gvList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:horizontalSpacing="10dp"
+            android:numColumns="4"
+            android:padding="20dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp" />
+
+
+        <LinearLayout
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/button_shap"
+            android:gravity="center"
+            android:onClick="closeTools"
+            android:padding="5dp">
+
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/close" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Close" />
+        </LinearLayout>
+    </FrameLayout>
 </RelativeLayout>

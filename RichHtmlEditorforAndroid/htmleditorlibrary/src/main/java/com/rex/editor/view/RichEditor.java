@@ -40,7 +40,7 @@ import java.util.Locale;
  * limitations under the License.
  */
 
-class RichEditor extends WebView {
+public class RichEditor extends WebView {
 
     public enum Type {
         BOLD,

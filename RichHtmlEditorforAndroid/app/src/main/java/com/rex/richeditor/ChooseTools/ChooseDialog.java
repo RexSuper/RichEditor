@@ -17,7 +17,33 @@ import java.util.List;
 public class ChooseDialog {
 
     public enum Type {
-        Color
+        /**
+         * 基本选项
+         */
+        NewLine,
+        Blod,
+        Italic,
+        Subscript,
+        Superscript,
+        Strikethrough,
+        Underline,
+        JustifyLeft,
+        JustifyCenter,
+        JustifyRight,
+        Blockquote,
+        Heading,
+        Undo,
+        Redo,
+        Indent,
+        Outdent,
+        Image,
+        InsertLink,
+        Checkbox,
+        TextColor,
+        TextBackgroundColor,
+        FontSize,
+        UnorderedList,
+        OrderedList
     }
 
     public interface OnItemClick {
@@ -26,16 +52,33 @@ public class ChooseDialog {
 
     public static void show(final Context context, Type type, final OnItemClick onItemClick) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(context, android.R.style.Theme_Holo_Light_Dialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.show_notice);
         builder.setTitle(type.name() + " Choose");
         final List<ChooseDialogData> dataList = new ArrayList<>();
         switch (type) {
-            case Color:
-                builder.setIcon(R.drawable.color);
-                dataList.add(new ChooseDialogData("RED", Color.RED,0));
-                dataList.add(new ChooseDialogData("GRAY", Color.GRAY,0));
-                dataList.add(new ChooseDialogData("BLUE", Color.BLUE,0));
-                dataList.add(new ChooseDialogData("YELLOW", Color.YELLOW,0));
+            case TextColor:
+                dataList.add(new ChooseDialogData("red", Color.RED, 0));
+                dataList.add(new ChooseDialogData("gray", Color.GRAY, 0));
+                dataList.add(new ChooseDialogData("blue", Color.BLUE, 0));
+                dataList.add(new ChooseDialogData("yellow", Color.YELLOW, 0));
+                dataList.add(new ChooseDialogData("cyan", Color.CYAN, 0));
+                break;
+
+            case TextBackgroundColor:
+                dataList.add(new ChooseDialogData("red", Color.RED, 0));
+                dataList.add(new ChooseDialogData("gray", Color.GRAY, 0));
+                dataList.add(new ChooseDialogData("blue", Color.BLUE, 0));
+                dataList.add(new ChooseDialogData("yellow", Color.YELLOW, 0));
+                dataList.add(new ChooseDialogData("cyan", Color.CYAN, 0));
+                break;
+            case Heading:
+                dataList.add(new ChooseDialogData("xx-small", 1, 0));
+                dataList.add(new ChooseDialogData("x-small", 2, 0));
+                dataList.add(new ChooseDialogData("small", 3, 0));
+                dataList.add(new ChooseDialogData("medium", 4, 0));
+                dataList.add(new ChooseDialogData("large", 5, 0));
+                dataList.add(new ChooseDialogData("x-large", 6, 0));
+                dataList.add(new ChooseDialogData("xx-large", 7, 0));
                 break;
 
             default:

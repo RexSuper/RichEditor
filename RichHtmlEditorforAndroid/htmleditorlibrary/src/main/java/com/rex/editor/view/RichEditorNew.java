@@ -87,9 +87,7 @@ public class RichEditorNew extends RichEditor {
         });
     }
 
-    public void setHtmlWithImageClick(String contents) {
-        setHtml(contents+ CommonJs.IMG_CLICK_JS);
-    }
+
 
     public void setNewLine() {
         isNeedSetNewLineAfter = false;
