@@ -16,4 +16,17 @@ I would like to thank "wasabeef/richeditor-android" in particular, because Rich 
 
 Thank you also for HTML Mogul @ZX aha
 
-[原理讲解](https://blog.csdn.net/qq_28844947/article/details/91870015 "原理讲解")
+
+
+[原理讲解 https://blog.csdn.net/qq_28844947/article/details/91870015](https://blog.csdn.net/qq_28844947/article/details/91870015 "")
+
+ [使用方式 https://github.com/RexSuper/RichHtmlEditorForAndroid/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/MainActivity.jav](https://github.com/RexSuper/RichHtmlEditorForAndroid/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/MainActivity.java "")
+
+
+# 实现内容
+![img](https://img-blog.csdnimg.cn/20190621191236782.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI4ODQ0OTQ3,size_16,color_FFFFFF,t_70)
+
+![img](https://img-blog.csdnimg.cn/20190621191339718.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI4ODQ0OTQ3,size_16,color_FFFFFF,t_70)
+
+
+![img](https://img-blog.csdnimg.cn/20190621191405180.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI4ODQ0OTQ3,size_16,color_FFFFFF,t_70)
