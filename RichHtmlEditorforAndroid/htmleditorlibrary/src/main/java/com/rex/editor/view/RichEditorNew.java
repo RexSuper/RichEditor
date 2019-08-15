@@ -2,6 +2,7 @@ package com.rex.editor.view;
 
 import android.content.Context;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.webkit.WebChromeClient;
 
@@ -39,6 +40,8 @@ public class RichEditorNew extends RichEditor {
     public void getCurrChooseParams() {
         exec("javascript:RE.getSelectedNode();");
     }
+
+
     public interface OnTextChangeNewListener {
         void onTextChange(String text);
     }
@@ -88,7 +91,6 @@ public class RichEditorNew extends RichEditor {
     }
 
 
-
     public void setNewLine() {
         isNeedSetNewLineAfter = false;
         isUnableTextChange = true;
@@ -111,4 +113,22 @@ public class RichEditorNew extends RichEditor {
     public boolean isNeedSetNewLineAfter() {
         return isNeedSetNewLineAfter;
     }
+
+    public void insertVideo(String videoUrl, String custom) {
+
+        if (TextUtils.isEmpty(custom)) {
+            custom =             //增加进度控制
+                    "controls=\"controls\"" +
+                            //视频显示第一帧
+                            " initial-time=\"0.01\" " +
+                            //宽高
+                            "height=\"300\" " +
+                            //样式
+                            " style=\"margin-top:10px;max-width:100%;\"";
+        }
+        System.out.println("videoUrl = [" + videoUrl + "], custom = [" + custom + "]");
+        exec("javascript:RE.prepareInsert();");
+        exec("javascript:RE.insertVideo('" + videoUrl + "', '" + custom + "');");
+    }
+
 }

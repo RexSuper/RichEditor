@@ -43,7 +43,8 @@ public class ChooseDialog {
         TextBackgroundColor,
         FontSize,
         UnorderedList,
-        OrderedList
+        OrderedList,
+        Video
     }
 
     public interface OnItemClick {

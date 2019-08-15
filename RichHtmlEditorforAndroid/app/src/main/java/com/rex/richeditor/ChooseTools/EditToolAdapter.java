@@ -26,6 +26,7 @@ public class EditToolAdapter extends BaseAdapter {
     }
 
     private List<ChooseDialogData> dataList = Arrays.asList(
+            new ChooseDialogData(ChooseDialog.Type.Video.name(), R.drawable.video),
             new ChooseDialogData(ChooseDialog.Type.Image.name(), R.drawable.insert_img),
             new ChooseDialogData(ChooseDialog.Type.NewLine.name(), R.drawable.new_line),
             new ChooseDialogData(ChooseDialog.Type.TextColor.name(), R.drawable.color),

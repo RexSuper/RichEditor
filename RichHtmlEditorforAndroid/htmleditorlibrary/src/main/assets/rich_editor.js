@@ -193,6 +193,11 @@ RE.insertImage = function(url, alt,style) {
     var html = '<img src="' + url + '" alt="' + alt + '" style="' + style + '" />';
     RE.insertHTML(html);
 }
+//&nbsp; 让其可以继续进去编辑模式
+RE.insertVideo = function(url,custom) {
+    var html = '&nbsp;<video src="' + url + '" ' + custom +'></video>&nbsp;';
+    RE.insertHTML(html);
+}
 
 RE.insertHTML = function(html) {
     RE.restorerange();

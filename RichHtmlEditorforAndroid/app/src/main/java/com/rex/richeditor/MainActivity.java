@@ -70,6 +70,10 @@ public class MainActivity extends Activity {
                 tools.setVisibility(View.GONE);
                 ChooseDialogData item = editToolAdapter.getItem(position);
                 switch (Type.valueOf(item.des)) {
+
+                    case Video:
+                        addVideo();
+                        break;
                     case TextColor:
                         ChooseDialog.show(mContext, Type.TextColor, new ChooseDialog.OnItemClick() {
                             @Override
@@ -164,6 +168,8 @@ public class MainActivity extends Activity {
         });
     }
 
+
+
     @Override
     public void onBackPressed() {
         if (tools.getVisibility() == View.VISIBLE) {
@@ -188,10 +194,30 @@ public class MainActivity extends Activity {
         gvList.setAdapter(editToolAdapter);
     }
 
+    private void addVideo() {
+        //需要编辑框有光标才行
+        richEditor.focusEditor();
+//        pb.setVisibility(View.VISIBLE);
+        //将视频上传到自己服务器得到链接
+        //============>
+        richEditor.setNeedSetNewLineAfter(true);
+        richEditor.insertVideo("https://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+                        //增加进度控制
+                "controls=\"controls\"" +
+                        //视频显示第一帧
+                        " initial-time=\"0.01\" " +
+                        //宽高
+                        "height=\"300\" " +
+                        //样式
+                        " style=\"margin-top:10px;max-width:100%;\""
+        );
+
+    }
+
     public void insertImage() {
         //需要编辑框有光标才行
         richEditor.focusEditor();
-        pb.setVisibility(View.VISIBLE);
+//        pb.setVisibility(View.VISIBLE);
         // 如果你想在加入图片后换行如果这样调用
         // 加载图片是耗时过长 所以需要在textchange后
         richEditor.setNeedSetNewLineAfter(true);
