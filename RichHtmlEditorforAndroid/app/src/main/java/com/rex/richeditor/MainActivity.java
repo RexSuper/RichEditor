@@ -72,7 +72,7 @@ public class MainActivity extends Activity {
                 switch (Type.valueOf(item.des)) {
 
                     case Video:
-                        addVideo();
+                        insertVideo();
                         break;
                     case TextColor:
                         ChooseDialog.show(mContext, Type.TextColor, new ChooseDialog.OnItemClick() {
@@ -194,10 +194,9 @@ public class MainActivity extends Activity {
         gvList.setAdapter(editToolAdapter);
     }
 
-    private void addVideo() {
+    private void insertVideo() {
         //需要编辑框有光标才行
         richEditor.focusEditor();
-//        pb.setVisibility(View.VISIBLE);
         //将视频上传到自己服务器得到链接
         //============>
         richEditor.setNeedSetNewLineAfter(true);
@@ -217,7 +216,6 @@ public class MainActivity extends Activity {
     public void insertImage() {
         //需要编辑框有光标才行
         richEditor.focusEditor();
-//        pb.setVisibility(View.VISIBLE);
         // 如果你想在加入图片后换行如果这样调用
         // 加载图片是耗时过长 所以需要在textchange后
         richEditor.setNeedSetNewLineAfter(true);

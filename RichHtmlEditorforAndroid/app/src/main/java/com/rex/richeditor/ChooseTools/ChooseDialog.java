@@ -20,6 +20,8 @@ public class ChooseDialog {
         /**
          * 基本选项
          */
+        Video,
+        Image,
         NewLine,
         Blod,
         Italic,
@@ -36,7 +38,6 @@ public class ChooseDialog {
         Redo,
         Indent,
         Outdent,
-        Image,
         InsertLink,
         Checkbox,
         TextColor,
@@ -44,7 +45,7 @@ public class ChooseDialog {
         FontSize,
         UnorderedList,
         OrderedList,
-        Video
+
     }
 
     public interface OnItemClick {
