@@ -44,13 +44,13 @@ Screenshot1
 </center>
 
 <center>
-<img src="https://upload-images.jianshu.io/upload_images/7292870-e9f1e4c3f08c9782" width="25%" height="25%" />
-Screenshot1 
+<img src="https://upload-images.jianshu.io/upload_images/7292870-d4833b9b48a92b5e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="25%" height="25%" />
+Screenshot2 
 </center>
 
 <center>
-<img src="https://upload-images.jianshu.io/upload_images/7292870-05c1f22fb0b1642" width="25%" height="25%" />
-Screenshot1 
+<img src="https://upload-images.jianshu.io/upload_images/7292870-05c1f22fb0b1642f.gif?imageMogr2/auto-orient/strip" />
+Screenshot3
 </center>
 
 
