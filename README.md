@@ -21,9 +21,9 @@ Thank you also for HTML Mogul @ZX aha
 
 
 
-[原理讲解 https://blog.csdn.net/qq_28844947/article/details/91870015](https://blog.csdn.net/qq_28844947/article/details/91870015 "")
+[原理讲解--->](https://blog.csdn.net/qq_28844947/article/details/91870015 "")
 
- [使用方式 https://github.com/RexSuper/RichHtmlEditorForAndroid/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/MainActivity.jav](https://github.com/RexSuper/RichHtmlEditorForAndroid/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/MainActivity.java "")
+ [使用方式--->](https://github.com/RexSuper/RichHtmlEditorForAndroid/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/MainActivity.java "")
 
 
 
@@ -47,7 +47,7 @@ OrderedList  | Hint | |
 ![image.gif](https://upload-images.jianshu.io/upload_images/7292870-05c1f22fb0b1642f.gif?imageMogr2/auto-orient/strip) ​
 
 ```
-  private void insertVideo() {
+private void insertVideo() {
         //需要编辑框有光标才行
         richEditor.focusEditor();
         //将视频上传到自己服务器得到链接
@@ -64,9 +64,9 @@ OrderedList  | Hint | |
                         " style=\"margin-top:10px;max-width:100%;\""
         );
 
-    }
+}
 
-    public void insertImage() {
+public void insertImage() {
         //需要编辑框有光标才行
         richEditor.focusEditor();
         // 如果你想在加入图片后换行如果这样调用
@@ -77,6 +77,6 @@ OrderedList  | Hint | |
         richEditor.insertImage("http://pic44.nipic.com/20140716/8716187_010828140000_2.jpg",
                 "picvision",
                 "margin-top:10px;max-width:100%;");
-    }
+}
 
 ```
