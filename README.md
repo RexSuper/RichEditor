@@ -23,7 +23,7 @@ Thank you also for HTML Mogul @ZX aha
 
 [原理讲解--->](https://blog.csdn.net/qq_28844947/article/details/91870015 "")
 
- [使用方式--->](https://github.com/RexSuper/RichHtmlEditorForAndroid/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/MainActivity.java "")
+[使用方式--->](https://github.com/RexSuper/RichHtmlEditorForAndroid/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/MainActivity.java "")
 
 
 
@@ -37,14 +37,22 @@ Blockquote  | Heading | Undo| Redo
 Indent  | Outdent | InsertLink| Checkbox
 TextColor  | TextBackgroundColor | FontSize| UnorderedList
 OrderedList  | Hint | | 
-
-
 # 实现内容
-![image](https://upload-images.jianshu.io/upload_images/7292870-e51416c2189f8b3c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+<center>
+<img src="https://upload-images.jianshu.io/upload_images/7292870-e51416c2189f8b3c" width="25%" height="25%" />
+Screenshot1 
+</center>
 
-![image.gif](https://upload-images.jianshu.io/upload_images/7292870-e9f1e4c3f08c9782.gif?imageMogr2/auto-orient/strip) ​![image](https://upload-images.jianshu.io/upload_images/7292870-d4833b9b48a92b5e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+<center>
+<img src="https://upload-images.jianshu.io/upload_images/7292870-e9f1e4c3f08c9782" width="25%" height="25%" />
+Screenshot1 
+</center>
 
-![image.gif](https://upload-images.jianshu.io/upload_images/7292870-05c1f22fb0b1642f.gif?imageMogr2/auto-orient/strip) ​
+<center>
+<img src="https://upload-images.jianshu.io/upload_images/7292870-05c1f22fb0b1642" width="25%" height="25%" />
+Screenshot1 
+</center>
+
 
 ```
 private void insertVideo() {
