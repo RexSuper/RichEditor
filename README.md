@@ -45,3 +45,38 @@ OrderedList  | Hint | |
 ![image.gif](https://upload-images.jianshu.io/upload_images/7292870-e9f1e4c3f08c9782.gif?imageMogr2/auto-orient/strip) ​![image](https://upload-images.jianshu.io/upload_images/7292870-d4833b9b48a92b5e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![image.gif](https://upload-images.jianshu.io/upload_images/7292870-05c1f22fb0b1642f.gif?imageMogr2/auto-orient/strip) ​
+
+```
+  private void insertVideo() {
+        //需要编辑框有光标才行
+        richEditor.focusEditor();
+        //将视频上传到自己服务器得到链接
+        //============>
+        richEditor.setNeedSetNewLineAfter(true);
+        richEditor.insertVideo("https://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+                        //增加进度控制
+                "controls=\"controls\"" +
+                        //视频显示第一帧
+                        " initial-time=\"0.01\" " +
+                        //宽高
+                        "height=\"300\" " +
+                        //样式
+                        " style=\"margin-top:10px;max-width:100%;\""
+        );
+
+    }
+
+    public void insertImage() {
+        //需要编辑框有光标才行
+        richEditor.focusEditor();
+        // 如果你想在加入图片后换行如果这样调用
+        // 加载图片是耗时过长 所以需要在textchange后
+        richEditor.setNeedSetNewLineAfter(true);
+        //可按htmlstyle 自定义间距居中等 类似margin-right 不会生效的问题 都是html本身的问题 可用一样的替换方案
+        //实战过程中 本地图片需要先上传到服务器生成url 再调用
+        richEditor.insertImage("http://pic44.nipic.com/20140716/8716187_010828140000_2.jpg",
+                "picvision",
+                "margin-top:10px;max-width:100%;");
+    }
+
+```
