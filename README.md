@@ -19,7 +19,9 @@ This project adopts the method of putting static web pages into the project, cal
 
 
 
-Finally, I would like to thank [wasabeef/richeditor-android] (https://github.com/wasabeef/richeditor-android,'wasabeef/richeditor-android'), because Rich Editor provides me with new ideas to meet these needs and overcomes the difficulties of native implementation.
+Finally, I would like to thank
+[wasabeef/richeditor-android] (https://github.com/wasabeef/richeditor-android,'wasabeef/richeditor-android'),
+because Rich Editor provides me with new ideas to meet these needs and overcomes the difficulties of native implementation.
 
 Thanks to HTML Mogul@ZX for letting me know how to implement these details of HTML as a supplement to its Rich Editor upgrade.
 
