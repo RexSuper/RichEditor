@@ -199,6 +199,13 @@ RE.insertVideo = function(url,custom) {
     RE.insertHTML(html);
 }
 
+RE.insertAudio = function(url,custom) {
+    var html = '&nbsp;<audio src="' + url + '" ' + custom +'></audio>&nbsp;';
+    RE.insertHTML(html);
+}
+
+
+
 RE.insertHTML = function(html) {
     RE.restorerange();
     document.execCommand('insertHTML', false, html);

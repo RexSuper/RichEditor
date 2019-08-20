@@ -1,4 +1,4 @@
-package com.rex.richeditor.ChooseTools;
+package com.rex.richeditor.tools;
 
 /**
  * @author Rex on 2019/6/20.

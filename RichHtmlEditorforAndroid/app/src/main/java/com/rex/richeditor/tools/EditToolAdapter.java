@@ -1,4 +1,4 @@
-package com.rex.richeditor.ChooseTools;
+package com.rex.richeditor.tools;
 
 import android.content.Context;
 import android.view.View;
@@ -7,8 +7,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.rex.richeditor.ChooseTools.ChooseDialog;
-import com.rex.richeditor.ChooseTools.ChooseDialogData;
 import com.rex.richeditor.R;
 
 import java.util.Arrays;
@@ -26,8 +24,10 @@ public class EditToolAdapter extends BaseAdapter {
     }
 
     private List<ChooseDialogData> dataList = Arrays.asList(
-            new ChooseDialogData(ChooseDialog.Type.Video.name(), R.drawable.video),
             new ChooseDialogData(ChooseDialog.Type.Image.name(), R.drawable.insert_img),
+            new ChooseDialogData(ChooseDialog.Type.Audio.name(), R.drawable.audio),
+            new ChooseDialogData(ChooseDialog.Type.Video.name(), R.drawable.video),
+            new ChooseDialogData(ChooseDialog.Type.File.name(), R.drawable.file),
             new ChooseDialogData(ChooseDialog.Type.NewLine.name(), R.drawable.new_line),
             new ChooseDialogData(ChooseDialog.Type.TextColor.name(), R.drawable.color),
             new ChooseDialogData(ChooseDialog.Type.Heading.name(), R.drawable.hhh),

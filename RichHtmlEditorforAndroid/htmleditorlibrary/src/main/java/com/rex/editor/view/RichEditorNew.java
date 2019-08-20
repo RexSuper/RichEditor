@@ -1,12 +1,9 @@
 package com.rex.editor.view;
 
 import android.content.Context;
-import android.text.Html;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.webkit.WebChromeClient;
-
-import com.rex.editor.common.CommonJs;
 
 /**
  * @author Rex on 2019/6/20.
@@ -91,6 +88,21 @@ public class RichEditorNew extends RichEditor {
     }
 
 
+    @Override
+    public void insertImage(String url, String alt, String style) {
+        focusEditor();
+        setNeedSetNewLineAfter(true);
+        super.insertImage(url, alt, style);
+    }
+
+    public void insertHtml(String html) {
+        focusEditor();
+        setNeedSetNewLineAfter(true);
+        exec("javascript:RE.prepareInsert();");
+        exec("javascript:RE.insertHTML('" + html + "');");
+    }
+
+
     public void setNewLine() {
         isNeedSetNewLineAfter = false;
         isUnableTextChange = true;
@@ -114,8 +126,45 @@ public class RichEditorNew extends RichEditor {
         return isNeedSetNewLineAfter;
     }
 
-    public void insertVideo(String videoUrl, String custom) {
 
+    public void insertFileWithDown(String downloadUrl, String title) {
+        if (TextUtils.isEmpty(downloadUrl)) {
+            return;
+        }
+
+        String fileName;
+        try {
+            String[] split = downloadUrl.split(".");
+            fileName = split[split.length - 1];
+        } catch (Exception e) {
+            fileName = "rich" + System.currentTimeMillis();
+        }
+
+        title += fileName;
+        insertHtml("<a href=\"" + downloadUrl + "\" download=\"" + fileName + "\">" +
+                title +
+                "</a>");
+    }
+
+
+    public void insertAudio(String audioUrl, String custom) {
+        focusEditor();
+        setNeedSetNewLineAfter(true);
+        if (TextUtils.isEmpty(custom)) {
+            custom =             //增加进度控制
+                    "controls=\"controls\"" +
+                            //宽高
+                            "height=\"300\" " +
+                            //样式
+                            " style=\"margin-top:10px;max-width:100%;\"";
+        }
+        exec("javascript:RE.prepareInsert();");
+        exec("javascript:RE.insertAudio('" + audioUrl + "', '" + custom + "');");
+    }
+
+    public void insertVideo(String videoUrl, String custom) {
+        focusEditor();
+        setNeedSetNewLineAfter(true);
         if (TextUtils.isEmpty(custom)) {
             custom =             //增加进度控制
                     "controls=\"controls\"" +

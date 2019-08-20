@@ -1,4 +1,4 @@
-package com.rex.richeditor.ChooseTools;
+package com.rex.richeditor.tools;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -20,6 +20,8 @@ public class ChooseDialog {
         /**
          * 基本选项
          */
+        File,
+        Audio,
         Video,
         Image,
         NewLine,
