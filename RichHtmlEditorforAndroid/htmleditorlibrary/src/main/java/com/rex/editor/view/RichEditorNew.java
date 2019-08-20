@@ -134,7 +134,7 @@ public class RichEditorNew extends RichEditor {
 
         String fileName;
         try {
-            String[] split = downloadUrl.split(".");
+            String[] split = downloadUrl.split("/");
             fileName = split[split.length - 1];
         } catch (Exception e) {
             fileName = "rich" + System.currentTimeMillis();
