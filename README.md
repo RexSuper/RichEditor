@@ -35,7 +35,9 @@ Thanks to HTML Mogul@ZX for letting me know how to implement these details of HT
 
 [原理讲解--->](https://blog.csdn.net/qq_28844947/article/details/91870015 "")
 
-[使用方式--->](https://github.com/RexSuper/RichHtmlEditorForAndroid/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/MainActivity.java "")
+[使用方式1 编辑模式--->](https://github.com/RexSuper/RichHtmlEditorForAndroid/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/MainActivity.java "")
+
+[使用方式2 展示模式--->](https://github.com/RexSuper/RichEditor/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/ShowHtmlActivity.java"")
 
 
 
