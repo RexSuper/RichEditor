@@ -53,7 +53,7 @@
                 android:background="@drawable/button_shap"
                 android:gravity="center"
                 android:onClick="publish"
-                android:text="publish"
+                android:text="Publish"
                 android:textColor="@android:color/white"
                 android:textSize="13sp" />
 
@@ -64,7 +64,7 @@
                 android:background="@drawable/button_shap"
                 android:gravity="center"
                 android:onClick="getCurrChooseParams"
-                android:text="getParams"
+                android:text="GetParams"
                 android:textColor="@android:color/white"
                 android:textSize="13sp" />
 
