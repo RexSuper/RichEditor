@@ -181,7 +181,6 @@ public class MainActivity extends Activity {
     }
 
     private void insertFile() {
-
         richEditor.insertFileWithDown(TEST_VIDEO_URL,"点击下载");
     }
 
@@ -196,9 +195,7 @@ public class MainActivity extends Activity {
         );
     }
 
-
     private void insertVideo() {
-
         richEditor.insertVideo(TEST_VIDEO_URL,
                 //增加进度控制
                 "controls=\"controls\"" +

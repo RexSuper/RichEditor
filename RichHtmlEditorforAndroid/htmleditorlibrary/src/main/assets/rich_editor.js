@@ -190,17 +190,17 @@ RE.setBlockquote = function() {
 }
 
 RE.insertImage = function(url, alt,style) {
-    var html = '<img src="' + url + '" alt="' + alt + '" style="' + style + '" />';
+    var html = '<img src="' + url + '" alt="' + alt + '" style="' + style + '" /><br></br>';
     RE.insertHTML(html);
 }
 //&nbsp; 让其可以继续进去编辑模式
 RE.insertVideo = function(url,custom) {
-    var html = '&nbsp;<video src="' + url + '" ' + custom +'></video>&nbsp;';
+    var html = '&nbsp;<video src="' + url + '" ' + custom +'></video>&nbsp;<br></br>';
     RE.insertHTML(html);
 }
 
 RE.insertAudio = function(url,custom) {
-    var html = '&nbsp;<audio src="' + url + '" ' + custom +'></audio>&nbsp;';
+    var html = '&nbsp;<audio src="' + url + '" ' + custom +'></audio>&nbsp;<br></br>';
     RE.insertHTML(html);
 }
 

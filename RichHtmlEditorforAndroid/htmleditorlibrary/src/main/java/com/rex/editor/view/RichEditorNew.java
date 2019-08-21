@@ -91,13 +91,11 @@ public class RichEditorNew extends RichEditor {
     @Override
     public void insertImage(String url, String alt, String style) {
         focusEditor();
-        setNeedSetNewLineAfter(true);
         super.insertImage(url, alt, style);
     }
 
     public void insertHtml(String html) {
         focusEditor();
-        setNeedSetNewLineAfter(true);
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.insertHTML('" + html + "');");
     }
@@ -143,13 +141,12 @@ public class RichEditorNew extends RichEditor {
         title += fileName;
         insertHtml("<a href=\"" + downloadUrl + "\" download=\"" + fileName + "\">" +
                 title +
-                "</a>");
+                "</a><br></br>");
     }
 
 
     public void insertAudio(String audioUrl, String custom) {
         focusEditor();
-        setNeedSetNewLineAfter(true);
         if (TextUtils.isEmpty(custom)) {
             custom =             //增加进度控制
                     "controls=\"controls\"" +
@@ -164,7 +161,6 @@ public class RichEditorNew extends RichEditor {
 
     public void insertVideo(String videoUrl, String custom) {
         focusEditor();
-        setNeedSetNewLineAfter(true);
         if (TextUtils.isEmpty(custom)) {
             custom =             //增加进度控制
                     "controls=\"controls\"" +
