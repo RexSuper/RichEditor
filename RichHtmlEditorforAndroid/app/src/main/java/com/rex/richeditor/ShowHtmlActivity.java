@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.webkit.DownloadListener;
 import android.webkit.URLUtil;
@@ -15,12 +14,11 @@ import android.widget.Toast;
 import com.rex.editor.common.CommonJs;
 import com.rex.editor.view.RichEditor;
 import com.rex.editor.view.RichEditorNew;
-import com.rex.richeditor.tools.DownloadTask;
+import com.rex.editor.common.DownloadTask;
 
 import java.io.File;
 
-import static com.rex.richeditor.MainActivity.TAG;
-import static com.rex.richeditor.tools.DownloadTask.getMIMEType;
+import static com.rex.editor.common.DownloadTask.getMIMEType;
 
 /**
  * @author Rex
@@ -42,8 +40,7 @@ public class ShowHtmlActivity extends Activity {
             richEditor.setVisibility(View.VISIBLE);
             //为图片加上点击事件 Js
             //不可编辑 预览模式
-            richEditor.loadDataWithBaseURL("file:///android_asset/",
-                    html + CommonJs.IMG_CLICK_JS, "text/html", "utf-8", null);
+            richEditor.loadRichEditorCode(html);
             richEditor.setOnClickImageTagListener(new RichEditor.OnClickImageTagListener() {
                 @Override
                 public void onClick(String url) {
@@ -57,11 +54,11 @@ public class ShowHtmlActivity extends Activity {
                     String fileName = URLUtil.guessFileName(url, contentDisposition, mimeType);
                     String destPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
                             .getAbsolutePath() + File.separator + fileName;
-                    new DownloadTask(ShowHtmlActivity.this, new DownloadTask.DownloadTaskCallBack() {
+                    new DownloadTask(new DownloadTask.DownloadTaskCallBack() {
 
                         @Override
                         public void onPreExecute() {
-                            Toast.makeText(ShowHtmlActivity.this, "开始下载" , Toast.LENGTH_LONG).show();
+                            Toast.makeText(ShowHtmlActivity.this, "开始下载", Toast.LENGTH_LONG).show();
                         }
 
                         @Override
@@ -85,7 +82,7 @@ public class ShowHtmlActivity extends Activity {
 
                         @Override
                         public void onError(String error) {
-                            Toast.makeText(ShowHtmlActivity.this, "下载失败:"+error, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ShowHtmlActivity.this, "下载失败:" + error, Toast.LENGTH_SHORT).show();
                         }
                     }).execute(url, destPath);
                 }

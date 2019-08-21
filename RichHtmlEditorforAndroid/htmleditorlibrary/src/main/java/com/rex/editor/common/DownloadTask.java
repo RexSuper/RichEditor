@@ -1,16 +1,7 @@
-package com.rex.richeditor.tools;
+package com.rex.editor.common;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.webkit.MimeTypeMap;
-import android.widget.Toast;
-
-import com.rex.richeditor.ShowHtmlActivity;
-
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +27,7 @@ public class DownloadTask extends AsyncTask<String, Void, Boolean> {
         void onError(String status);
     }
 
-    public DownloadTask(ShowHtmlActivity showHtmlActivity, DownloadTaskCallBack downloadTaskCallBack) {
+    public DownloadTask(DownloadTaskCallBack downloadTaskCallBack) {
         this.mDownloadTaskCallBack = downloadTaskCallBack;
     }
 

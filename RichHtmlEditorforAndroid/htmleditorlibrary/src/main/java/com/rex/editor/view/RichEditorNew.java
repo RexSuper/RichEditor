@@ -5,6 +5,8 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.webkit.WebChromeClient;
 
+import com.rex.editor.common.CommonJs;
+
 /**
  * @author Rex on 2019/6/20.
  */
@@ -36,6 +38,11 @@ public class RichEditorNew extends RichEditor {
 
     public void getCurrChooseParams() {
         exec("javascript:RE.getSelectedNode();");
+    }
+
+    public void loadRichEditorCode(String html) {
+        loadDataWithBaseURL("file:///android_asset/",
+                html + CommonJs.IMG_CLICK_JS, "text/html", "utf-8", null);
     }
 
 
