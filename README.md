@@ -1,3 +1,5 @@
+APk:https://github.com/RexSuper/RichEditor/blob/master/RichHtmlEditorforAndroid/app/release/RichEditorAndroid.apk
+
 # Android富文本编辑器
 
 ***2019-08-20 更新日志 增加音频功能 增加链接下载功能 和视频下载功能***
