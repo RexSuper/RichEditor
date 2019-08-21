@@ -1,6 +1,28 @@
 APk:https://github.com/RexSuper/RichEditor/blob/master/RichHtmlEditorforAndroid/app/release/RichEditorAndroid.apk
 QQ交流群：825074000
 
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+Step 2. Add the dependency
+
+	dependencies {
+	        implementation 'com.github.RexSuper:RichEditor:1.0.0'
+	}
+
+The following code must be read, because rich text has some functions that must be filled in later, such as the user's resource files have to be placed in their own server to generate links
+
+下面的示例代码必须看，因为富文本有些功能后续不得不自己填充，比如用户的资源文件得先放到自己服务器生成链接
+
+[使用方式1 编辑模式--->](https://github.com/RexSuper/RichHtmlEditorForAndroid/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/MainActivity.java "")
+
+[使用方式2 展示模式--->](https://github.com/RexSuper/RichEditor/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/ShowHtmlActivity.java"")
+
 # Android富文本编辑器
 
 ***2019-08-20 更新日志 增加音频功能 增加链接下载功能 和视频下载功能***
@@ -45,9 +67,6 @@ Thanks to HTML Mogul@ZX for letting me know how to implement these details of HT
 
 [原理讲解--->](https://blog.csdn.net/qq_28844947/article/details/91870015 "")
 
-[使用方式1 编辑模式--->](https://github.com/RexSuper/RichHtmlEditorForAndroid/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/MainActivity.java "")
-
-[使用方式2 展示模式--->](https://github.com/RexSuper/RichEditor/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/ShowHtmlActivity.java"")
 
 
 
