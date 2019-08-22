@@ -181,40 +181,50 @@ public class MainActivity extends Activity {
     }
 
     private void insertFile() {
-        richEditor.insertFileWithDown(TEST_VIDEO_URL,"点击下载");
+        richEditor.insertFileWithDown(TEST_VIDEO_URL, "点击下载");
     }
 
     private void insertAudio() {
-        richEditor.insertAudio("",
-                //增加进度控制
-                "controls=\"controls\"" +
-                        //宽高
-                        "height=\"300\" " +
-                        //样式
-                        " style=\"margin-top:10px;max-width:100%;\""
-        );
+        //默认调用
+        richEditor.insertAudio(TEST_VIDEO_URL);
+        //自定义
+//        richEditor.insertAudio(TEST_VIDEO_URL,
+//                //增加进度控制
+//                "controls=\"controls\"" +
+//                        //宽高
+//                        "height=\"300\" " +
+//                        //样式
+//                        " style=\"margin-top:10px;max-width:100%;\""
+//        );
     }
 
     private void insertVideo() {
-        richEditor.insertVideo(TEST_VIDEO_URL,
-                //增加进度控制
-                "controls=\"controls\"" +
-                        //视频显示第一帧
-                        " initial-time=\"0.01\" " +
-                        //宽高
-                        "height=\"300\" " +
-                        //样式
-                        " style=\"margin-top:10px;max-width:100%;\""
-        );
+
+        //默认样式
+        richEditor.insertVideo(TEST_VIDEO_URL);
+        //自定义
+        // richEditor.insertVideo(TEST_VIDEO_URL,
+        //                //增加进度控制
+        //                "controls=\"controls\"" +
+        //                        //视频显示第一帧
+        //                        " initial-time=\"0.01\" " +
+        //                        //宽高
+        //                        "height=\"300\" " +
+        //                        //样式
+        //                        " style=\"margin-top:10px;max-width:100%;\""
+        //);
 
     }
 
     public void insertImage() {
         //可按htmlstyle 自定义间距居中等 类似margin-right 不会生效的问题 都是html本身的问题 可用一样的替换方案
         //实战过程中 本地图片需要先上传到服务器生成url 再调用
-        richEditor.insertImage(TEST_IMAGE_URL,
-                "picvision",
-                "margin-top:10px;max-width:100%;");
+        //默认样式
+        richEditor.insertImage(TEST_IMAGE_URL);
+        //自定义
+//        richEditor.insertImage(TEST_IMAGE_URL,
+//                "picvision",
+//                "margin-top:10px;max-width:100%;");
     }
 
     @Override

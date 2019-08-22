@@ -94,9 +94,16 @@ public class RichEditorNew extends RichEditor {
         });
     }
 
+    public void insertImage(String url) {
+        insertImage(url,"","");
+    }
 
     @Override
     public void insertImage(String url, String alt, String style) {
+        if (TextUtils.isEmpty(style)) {
+            alt = "picvision";
+            style = "margin-top:10px;max-width:100%;";
+        }
         focusEditor();
         super.insertImage(url, alt, style);
     }
@@ -151,6 +158,9 @@ public class RichEditorNew extends RichEditor {
                 "</a><br></br>");
     }
 
+    public void insertAudio(String audioUrl) {
+        insertAudio(audioUrl, "");
+    }
 
     public void insertAudio(String audioUrl, String custom) {
         focusEditor();
@@ -164,6 +174,11 @@ public class RichEditorNew extends RichEditor {
         }
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.insertAudio('" + audioUrl + "', '" + custom + "');");
+    }
+
+
+    public void insertVideo(String videoUrl) {
+        insertVideo(videoUrl, "");
     }
 
     public void insertVideo(String videoUrl, String custom) {
