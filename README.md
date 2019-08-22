@@ -91,41 +91,51 @@ OrderedList  | Hint |Superscript | InsertLink
 #Edit
 
 ```
-    private void insertFile() {
-        richEditor.insertFileWithDown(TEST_VIDEO_URL,"点击下载");
+   private void insertFile() {
+        richEditor.insertFileWithDown(TEST_VIDEO_URL, "点击下载");
     }
 
     private void insertAudio() {
-        richEditor.insertAudio("",
-                //增加进度控制
-                "controls=\"controls\"" +
-                        //宽高
-                        "height=\"300\" " +
-                        //样式
-                        " style=\"margin-top:10px;max-width:100%;\""
-        );
+        //默认调用
+        richEditor.insertAudio(TEST_AUDIO_URL);
+        //自定义  
+//        richEditor.insertAudio(TEST_VIDEO_URL,
+//                //增加进度控制
+//                "controls=\"controls\"" +
+//                        //宽高
+//                        "height=\"300\" " +
+//                        //样式
+//                        " style=\"margin-top:10px;max-width:100%;\""
+//        );
     }
 
     private void insertVideo() {
-        richEditor.insertVideo(TEST_VIDEO_URL,
-                //增加进度控制
-                "controls=\"controls\"" +
-                        //视频显示第一帧
-                        " initial-time=\"0.01\" " +
-                        //宽高
-                        "height=\"300\" " +
-                        //样式
-                        " style=\"margin-top:10px;max-width:100%;\""
-        );
+
+        //默认样式
+        richEditor.insertVideo(TEST_VIDEO_URL);
+        //自定义       
+        // richEditor.insertVideo(TEST_VIDEO_URL,
+        //                //增加进度控制
+        //                "controls=\"controls\"" +
+        //                        //视频显示第一帧
+        //                        " initial-time=\"0.01\" " +
+        //                        //宽高
+        //                        "height=\"300\" " +
+        //                        //样式
+        //                        " style=\"margin-top:10px;max-width:100%;\""
+        //);
 
     }
 
     public void insertImage() {
         //可按htmlstyle 自定义间距居中等 类似margin-right 不会生效的问题 都是html本身的问题 可用一样的替换方案
         //实战过程中 本地图片需要先上传到服务器生成url 再调用
-        richEditor.insertImage(TEST_IMAGE_URL,
-                "picvision",
-                "margin-top:10px;max-width:100%;");
+        //默认样式
+        richEditor.insertImage(TEST_IMAGE_URL);
+        //自定义 
+//        richEditor.insertImage(TEST_IMAGE_URL,
+//                "picvision",
+//                "margin-top:10px;max-width:100%;");
     }
 
 ```
@@ -133,8 +143,9 @@ OrderedList  | Hint |Superscript | InsertLink
 #Show
 
 ```
-  richEditor.loadDataWithBaseURL("file:///android_asset/",
+// richEditor.loadDataWithBaseURL("file:///android_asset/",
                     html + CommonJs.IMG_CLICK_JS, "text/html", "utf-8", null);
+ richEditor.loadRichEditorCode(html);
             richEditor.setOnClickImageTagListener(new RichEditor.OnClickImageTagListener() {
                 @Override
                 public void onClick(String url) {
@@ -145,15 +156,14 @@ OrderedList  | Hint |Superscript | InsertLink
             richEditor.setDownloadListener(new DownloadListener() {
                 @Override
                 public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimeType, long contentLength) {
-                    //可自行实现
                     String fileName = URLUtil.guessFileName(url, contentDisposition, mimeType);
                     String destPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
                             .getAbsolutePath() + File.separator + fileName;
-                    new DownloadTask(ShowHtmlActivity.this, new DownloadTask.DownloadTaskCallBack() {
+                    new DownloadTask(new DownloadTask.DownloadTaskCallBack() {
 
                         @Override
                         public void onPreExecute() {
-                            Toast.makeText(ShowHtmlActivity.this, "开始下载" , Toast.LENGTH_LONG).show();
+                            Toast.makeText(ShowHtmlActivity.this, "开始下载", Toast.LENGTH_LONG).show();
                         }
 
                         @Override
@@ -177,7 +187,7 @@ OrderedList  | Hint |Superscript | InsertLink
 
                         @Override
                         public void onError(String error) {
-                            Toast.makeText(ShowHtmlActivity.this, "下载失败:"+error, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ShowHtmlActivity.this, "下载失败:" + error, Toast.LENGTH_SHORT).show();
                         }
                     }).execute(url, destPath);
                 }
