@@ -19,6 +19,8 @@ The following code must be read, because rich text has some functions that must 
 
 下面的示例代码必须看，因为富文本有些功能后续不得不自己填充，比如用户的资源文件得先放到自己服务器生成链接
 
+https://github.com/RexSuper/RichEditor/tree/example/Example
+
 [使用方式1 编辑模式--->](https://github.com/RexSuper/RichHtmlEditorForAndroid/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/MainActivity.java "")
 
 [使用方式2 展示模式--->](https://github.com/RexSuper/RichEditor/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/ShowHtmlActivity.java"")
