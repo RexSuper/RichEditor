@@ -103,12 +103,12 @@ public class RichEditorNew extends RichEditor {
             alt = "picvision";
             style = "margin-top:10px;max-width:100%;";
         }
-        focusEditor();
+//        focusEditor();
         super.insertImage(url, alt, style);
     }
 
     public void insertHtml(String html) {
-        focusEditor();
+//        focusEditor();
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.insertHTML('" + html + "');");
     }
@@ -162,7 +162,7 @@ public class RichEditorNew extends RichEditor {
     }
 
     public void insertAudio(String audioUrl, String custom) {
-        focusEditor();
+//        focusEditor();
         if (TextUtils.isEmpty(custom)) {
             custom =             //增加进度控制
                     "controls=\"controls\"" +
@@ -186,7 +186,7 @@ public class RichEditorNew extends RichEditor {
      * @param posterUrl   视频默认缩略图
      */
     public void insertVideo(String videoUrl, String customStyle, String posterUrl) {
-        focusEditor();
+//        focusEditor();
         if (TextUtils.isEmpty(customStyle)) {
             customStyle =             //增加进度控制
 //                    "controls=\"controls\"" + //已修改到video标签里面

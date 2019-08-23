@@ -119,7 +119,6 @@ public class MainActivity extends Activity {
                         richEditor.insertLink(TEST_WEB_URL, "test link");
                         break;
                     case NewLine:
-                        richEditor.focusEditor();
                         richEditor.setNewLine();
                         break;
                     case Blod:
@@ -202,9 +201,9 @@ public class MainActivity extends Activity {
 
         //默认样式
         //richEditor.insertVideo(TEST_VIDEO_URL);
-        richEditor.insertVideo(TEST_VIDEO_URL,"",TEST_IMAGE_URL);
+//        richEditor.insertVideo(TEST_VIDEO_URL,"",TEST_IMAGE_URL);
 
-
+        richEditor.insertHtml("<img src=\"http://pic44.nipic.com/20140716/8716187_010828140000_2.jpg\" alt=\"picvision\">");
     }
 
     public void insertImage() {
@@ -262,9 +261,7 @@ public class MainActivity extends Activity {
      * @param view
      */
     public void getCurrChooseParams(View view) {
-        richEditor.focusEditor();
         richEditor.getCurrChooseParams();
-
     }
 
     /**

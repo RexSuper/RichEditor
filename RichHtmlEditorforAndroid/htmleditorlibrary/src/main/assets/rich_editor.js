@@ -190,12 +190,13 @@ RE.setBlockquote = function() {
 }
 
 RE.insertImage = function(url, alt,style) {
-    var html = '<img src="' + url + '" alt="' + alt + '" style="' + style + '" /><br></br>';
+//<br></br>
+    var html = '<img src="' + url + '" alt="' + alt + '" style="' + style + '" />';
     RE.insertHTML(html);
+    //    window.getSelection().anchorNode.scrollIntoView({behavior: "smooth"})
 }
 //&nbsp; 让其可以继续进去编辑模式
 RE.insertVideo = function(url,custom,posterUrl) {
-
     var html = '&nbsp;<video controls="controls" poster="' +posterUrl+ '" src="' + url + '" ' + custom +'></video>&nbsp;<br></br>';
     RE.insertHTML(html);
 }
@@ -240,6 +241,7 @@ RE.prepareInsert = function() {
 }
 
 RE.backuprange = function(){
+    console.log("backuprange");
     var selection = window.getSelection();
     if (selection.rangeCount > 0) {
       var range = selection.getRangeAt(0);
@@ -339,7 +341,11 @@ RE.editor.addEventListener("keyup", function(e) {
 RE.editor.addEventListener("click", RE.enabledEditingItems);
 
 RE.fixFontSize = function(){
- document.querySelectorAll('font').forEach(function(item) {
+    var font = document.querySelectorAll('font')
+    if(!font){
+    return
+    }
+ font.forEach(function(item) {
 
  if (item.getAttribute('size') == '1') {
      item.style.fontSize='13px';
