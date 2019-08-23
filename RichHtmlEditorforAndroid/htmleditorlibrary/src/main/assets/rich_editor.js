@@ -194,8 +194,9 @@ RE.insertImage = function(url, alt,style) {
     RE.insertHTML(html);
 }
 //&nbsp; 让其可以继续进去编辑模式
-RE.insertVideo = function(url,custom) {
-    var html = '&nbsp;<video src="' + url + '" ' + custom +'></video>&nbsp;<br></br>';
+RE.insertVideo = function(url,custom,posterUrl) {
+
+    var html = '&nbsp;<video controls="controls" poster="' +posterUrl+ '" src="' + url + '" ' + custom +'></video>&nbsp;<br></br>';
     RE.insertHTML(html);
 }
 

@@ -201,18 +201,9 @@ public class MainActivity extends Activity {
     private void insertVideo() {
 
         //默认样式
-        richEditor.insertVideo(TEST_VIDEO_URL);
-        //自定义
-        // richEditor.insertVideo(TEST_VIDEO_URL,
-        //                //增加进度控制
-        //                "controls=\"controls\"" +
-        //                        //视频显示第一帧
-        //                        " initial-time=\"0.01\" " +
-        //                        //宽高
-        //                        "height=\"300\" " +
-        //                        //样式
-        //                        " style=\"margin-top:10px;max-width:100%;\""
-        //);
+        //richEditor.insertVideo(TEST_VIDEO_URL);
+        richEditor.insertVideo(TEST_VIDEO_URL,"",TEST_IMAGE_URL);
+
 
     }
 

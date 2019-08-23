@@ -1,7 +1,16 @@
 package com.rex.editor.common;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Environment;
+import android.webkit.DownloadListener;
 import android.webkit.MimeTypeMap;
+import android.webkit.URLUtil;
+import android.widget.Toast;
+
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,6 +35,54 @@ public class DownloadTask extends AsyncTask<String, Void, Boolean> {
 
         void onError(String status);
     }
+
+    public static DownloadListener getDefaultDownloadListener(final Context context) {
+//        verifyStoragePermissions(context);
+        return new DownloadListener() {
+            @Override
+            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimeType, long contentLength) {
+                String fileName = URLUtil.guessFileName(url, contentDisposition, mimeType);
+                String destPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                        .getAbsolutePath() + File.separator + fileName;
+                new DownloadTask(DownloadTask.getDefaultDownloadTaskCallBack(context)).execute(url, destPath);
+            }
+        };
+    }
+
+    public static DownloadTask.DownloadTaskCallBack getDefaultDownloadTaskCallBack(final Context context) {
+        return new DownloadTask.DownloadTaskCallBack() {
+
+            @Override
+            public void onPreExecute() {
+                Toast.makeText(context, "开始下载", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void doInBackground(int progress) {
+
+            }
+
+            @Override
+            public void onPostExecute(boolean noError, String url, String destPath) {
+                if (noError) {
+                    Toast.makeText(context, "下载完成" + destPath, Toast.LENGTH_LONG).show();
+                    Intent handlerIntent = new Intent(Intent.ACTION_VIEW);
+                    String mimeType = getMIMEType(url);
+                    Uri uri = Uri.fromFile(new File(destPath));
+                    handlerIntent.setDataAndType(uri, mimeType);
+                    context.startActivity(handlerIntent);
+                } else {
+                    Toast.makeText(context, "下载失败!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(context, "下载失败:" + error, Toast.LENGTH_SHORT).show();
+            }
+        };
+    }
+
 
     public DownloadTask(DownloadTaskCallBack downloadTaskCallBack) {
         this.mDownloadTaskCallBack = downloadTaskCallBack;

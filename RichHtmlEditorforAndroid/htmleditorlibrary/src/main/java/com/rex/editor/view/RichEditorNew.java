@@ -16,8 +16,7 @@ public class RichEditorNew extends RichEditor {
     /**
      * 用于在ontextchange中执行操作标识避免循环
      */
-    public boolean isUnableTextChange = false;
-
+    private boolean isUnableTextChange = false;
     private boolean isNeedSetNewLineAfter = false;
 
     public RichEditorNew(Context context) {
@@ -95,7 +94,7 @@ public class RichEditorNew extends RichEditor {
     }
 
     public void insertImage(String url) {
-        insertImage(url,"","");
+        insertImage(url, "", "");
     }
 
     @Override
@@ -178,24 +177,31 @@ public class RichEditorNew extends RichEditor {
 
 
     public void insertVideo(String videoUrl) {
-        insertVideo(videoUrl, "");
+        insertVideo(videoUrl, "","");
     }
 
-    public void insertVideo(String videoUrl, String custom) {
+    /**
+     * @param videoUrl
+     * @param customStyle
+     * @param posterUrl   视频默认缩略图
+     */
+    public void insertVideo(String videoUrl, String customStyle, String posterUrl) {
         focusEditor();
-        if (TextUtils.isEmpty(custom)) {
-            custom =             //增加进度控制
-                    "controls=\"controls\"" +
+        if (TextUtils.isEmpty(customStyle)) {
+            customStyle =             //增加进度控制
+//                    "controls=\"controls\"" + //已修改到video标签里面
                             //视频显示第一帧
-                            " initial-time=\"0.01\" " +
+//                            " initial-time=\"0.01\" " +//客户端无效
                             //宽高
                             "height=\"300\" " +
                             //样式
                             " style=\"margin-top:10px;max-width:100%;\"";
         }
-        System.out.println("videoUrl = [" + videoUrl + "], custom = [" + custom + "]");
+
+
+        System.out.println("videoUrl = [" + videoUrl + "], custom = [" + customStyle + "]");
         exec("javascript:RE.prepareInsert();");
-        exec("javascript:RE.insertVideo('" + videoUrl + "', '" + custom + "');");
+        exec("javascript:RE.insertVideo('" + videoUrl + "', '" + customStyle+ "', '" + posterUrl + "');");
     }
 
 }

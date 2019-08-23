@@ -19,6 +19,7 @@ import com.rex.editor.common.DownloadTask;
 import java.io.File;
 
 import static com.rex.editor.common.DownloadTask.getMIMEType;
+import static com.rex.richeditor.MainActivity.verifyStoragePermissions;
 
 /**
  * @author Rex
@@ -30,6 +31,9 @@ public class ShowHtmlActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_html);
+
+        //下载权限需要
+        verifyStoragePermissions(this);
         String html = getIntent().getStringExtra("html");
         boolean isPublish = getIntent().getBooleanExtra("isPublish", true);
         RichEditorNew richEditor = findViewById(R.id.richEditor);
@@ -48,45 +52,7 @@ public class ShowHtmlActivity extends Activity {
                 }
             });
 
-            richEditor.setDownloadListener(new DownloadListener() {
-                @Override
-                public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimeType, long contentLength) {
-                    String fileName = URLUtil.guessFileName(url, contentDisposition, mimeType);
-                    String destPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-                            .getAbsolutePath() + File.separator + fileName;
-                    new DownloadTask(new DownloadTask.DownloadTaskCallBack() {
-
-                        @Override
-                        public void onPreExecute() {
-                            Toast.makeText(ShowHtmlActivity.this, "开始下载", Toast.LENGTH_LONG).show();
-                        }
-
-                        @Override
-                        public void doInBackground(int progress) {
-
-                        }
-
-                        @Override
-                        public void onPostExecute(boolean noError, String url, String destPath) {
-                            if (noError) {
-                                Toast.makeText(ShowHtmlActivity.this, "下载完成" + destPath, Toast.LENGTH_LONG).show();
-                                Intent handlerIntent = new Intent(Intent.ACTION_VIEW);
-                                String mimeType = getMIMEType(url);
-                                Uri uri = Uri.fromFile(new File(destPath));
-                                handlerIntent.setDataAndType(uri, mimeType);
-                                startActivity(handlerIntent);
-                            } else {
-                                Toast.makeText(ShowHtmlActivity.this, "下载失败!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onError(String error) {
-                            Toast.makeText(ShowHtmlActivity.this, "下载失败:" + error, Toast.LENGTH_SHORT).show();
-                        }
-                    }).execute(url, destPath);
-                }
-            });
+            richEditor.setDownloadListener(DownloadTask.getDefaultDownloadListener(this));
         } else {
             tvHtmlCode.setText(html);
             tvHtmlCode.setVisibility(View.VISIBLE);
