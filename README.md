@@ -196,3 +196,5 @@ OrderedList  | Hint |Superscript | InsertLink
             });
 
 ```
+
+疑难细节问题记录：https://github.com/RexSuper/RichEditor/wiki/富文本编辑器-特殊记录
