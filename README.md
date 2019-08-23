@@ -1,5 +1,5 @@
 APk:https://github.com/RexSuper/RichEditor/blob/master/RichHtmlEditorforAndroid/app/release/RichEditorAndroid.apk
-QQ交流群：825074000
+
 
 Add it in your root build.gradle at the end of repositories:
 
