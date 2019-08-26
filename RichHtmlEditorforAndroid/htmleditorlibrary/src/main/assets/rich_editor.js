@@ -190,20 +190,21 @@ RE.setBlockquote = function() {
 }
 
 RE.insertImage = function(url, alt,style) {
-//<br></br>
-    var html = '<img src="' + url + '" alt="' + alt + '" style="' + style + '" />';
+    var html = '<img src="' + url + '" alt="' + alt + '" style="' + style + '" /><br></br>';
     RE.insertHTML(html);
-    //    window.getSelection().anchorNode.scrollIntoView({behavior: "smooth"})
+    RE.editor.scrollIntoView(false)
 }
 //&nbsp; 让其可以继续进去编辑模式
 RE.insertVideo = function(url,custom,posterUrl) {
     var html = '&nbsp;<video controls="controls" poster="' +posterUrl+ '" src="' + url + '" ' + custom +'></video>&nbsp;<br></br>';
     RE.insertHTML(html);
+    RE.editor.scrollIntoView(false)
 }
 
 RE.insertAudio = function(url,custom) {
     var html = '&nbsp;<audio src="' + url + '" ' + custom +'></audio>&nbsp;<br></br>';
     RE.insertHTML(html);
+    RE.editor.scrollIntoView(false)
 }
 
 

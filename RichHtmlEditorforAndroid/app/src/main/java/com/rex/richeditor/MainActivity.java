@@ -200,10 +200,8 @@ public class MainActivity extends Activity {
     private void insertVideo() {
 
         //默认样式
-        //richEditor.insertVideo(TEST_VIDEO_URL);
+        richEditor.insertVideo(TEST_VIDEO_URL);
 //        richEditor.insertVideo(TEST_VIDEO_URL,"",TEST_IMAGE_URL);
-
-        richEditor.insertHtml("<img src=\"http://pic44.nipic.com/20140716/8716187_010828140000_2.jpg\" alt=\"picvision\">");
     }
 
     public void insertImage() {
