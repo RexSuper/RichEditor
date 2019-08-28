@@ -1,3 +1,9 @@
 RichHtmlEditorforAndroid/gradle/
 RichHtmlEditorforAndroid/.idea/
 Example/.idea/
+*.flat
+*.json
+Example/app/build/
+Example/.gradle/
+Example/Example.iml
+Example/app/app.iml
