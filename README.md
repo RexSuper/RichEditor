@@ -12,7 +12,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.RexSuper:RichEditor:1.0.3'
+	        implementation 'com.github.RexSuper:RichEditor:1.0.4'
 	}
 
 The following code must be read, because rich text has some functions that must be filled in later, such as the user's resource files have to be placed in their own server to generate links
@@ -23,7 +23,7 @@ https://github.com/RexSuper/RichEditor/tree/example/Example
 
 [使用方式1 编辑模式--->](https://github.com/RexSuper/RichHtmlEditorForAndroid/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/MainActivity.java "")
 
-[使用方式2 展示模式--->](https://github.com/RexSuper/RichEditor/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/ShowHtmlActivity.java"")
+[使用方式2 展示模式--->](https://github.com/RexSuper/RichEditor/blob/master/RichHtmlEditorforAndroid/app/src/main/java/com/rex/richeditor/ShowHtmlActivity.java "")
 
 # Android富文本编辑器
 
