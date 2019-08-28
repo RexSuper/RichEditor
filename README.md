@@ -12,7 +12,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.RexSuper:RichEditor:1.0.3'
+	        implementation 'com.github.RexSuper:RichEditor:1.0.4'
 	}
 
 The following code must be read, because rich text has some functions that must be filled in later, such as the user's resource files have to be placed in their own server to generate links
