@@ -6,6 +6,9 @@ import android.util.AttributeSet;
 import android.webkit.WebChromeClient;
 
 import com.rex.editor.common.CommonJs;
+import com.rex.editor.common.Utils;
+
+import java.util.List;
 
 /**
  * @author Rex on 2019/6/20.
@@ -202,6 +205,10 @@ public class RichEditorNew extends RichEditor {
         System.out.println("videoUrl = [" + videoUrl + "], custom = [" + customStyle + "]");
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.insertVideo('" + videoUrl + "', '" + customStyle+ "', '" + posterUrl + "');");
+    }
+    // 获取html本地的地址 方便上传的时候转为在线的地址
+    public List<String> getAllSrcAndHref() {
+       return Utils.getHtmlSrcOrHrefList(getHtml());
     }
 
 }

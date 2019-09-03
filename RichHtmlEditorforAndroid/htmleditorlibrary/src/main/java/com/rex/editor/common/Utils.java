@@ -7,9 +7,18 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaMetadataRetriever;
+import android.text.TextUtils;
 import android.util.Base64;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import org.w3c.dom.Text;
+
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public final class Utils {
 
@@ -18,6 +27,44 @@ public final class Utils {
     }
 
 
+    /**
+     * 获取html本地的地址 方便上传的时候转为在线的地址
+     * @param html
+     * @return
+     */
+    public static List<String> getHtmlSrcOrHrefList(String html) {
+
+        if (TextUtils.isEmpty(html)) {
+            return null;
+        }
+        Document doc = Jsoup.parse(html);
+        List<String> listData = new ArrayList();
+
+        Elements elementsSrc = new Elements();
+        Elements elementsImg = doc.select("img[src]");
+        Elements elementsAudio = doc.select("audio[src]");
+        Elements elementsVideo = doc.select("video[src]");
+        Elements elementsFiles = doc.select("a[href]");
+
+        elementsSrc.addAll(elementsImg);
+        elementsSrc.addAll(elementsAudio);
+        elementsSrc.addAll(elementsVideo);
+        for (Element element : elementsSrc) {
+            String src = element.attr("src");
+            if (!TextUtils.isEmpty(src)&&!src.contains("http")){
+                listData.add(src);
+            }
+        }
+
+        for (Element element : elementsFiles) {
+            String src = element.attr("href");
+            if (!TextUtils.isEmpty(src)&&!src.contains("http")){
+                listData.add(src);
+            }
+        }
+
+        return listData;
+    }
 
     public static Bitmap toBitmap(Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {
