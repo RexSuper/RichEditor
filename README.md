@@ -1,3 +1,12 @@
+# Android富文本编辑器 说明
+[博客部分原理讲解--->](https://blog.csdn.net/qq_28844947/article/details/91870015 "")
+
+
+本编辑器基于静态html实现了客户端编辑器所需要的几乎全部功能及其实际流程所需，包括下载，视频缩略图，自定义标签样式
+自定义点击事件本地资源转网络资源需要改为你自己的服务器）等等 （下面一个实际项目的应用演示）
+
+# 集成方式
+
 Add it in your root build.gradle at the end of repositories:
 
 	allprojects {
@@ -9,17 +18,17 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.RexSuper:RichEditor:1.0.4'
+	        implementation 'com.github.RexSuper:RichEditor:1.0.5'
 	}
 
 
+# 使用示例
+下面的示例代码必须要看，因为富文本有些功能后续不得不自己填充，比如用户的资源文件最终得放到自己服务器生成链接,视频缩略图等拓展功能，编辑模式和再现的模式也是不同的，务必看演示案例
 
-下面的示例代码必须看，因为富文本有些功能后续不得不自己填充，比如用户的资源文件得先放到自己服务器生成链接,视频缩略图等拓展功能，务必看演示案例
+# https://github.com/RexSuper/RichEditor/tree/master/RichHtmlEditorforAndroid/sample
 
-https://github.com/RexSuper/RichEditor/tree/master/RichHtmlEditorforAndroid/sample
+# 更新日志
 
-# Android富文本编辑器
-更新日志
 ***2019-09-04  优化用户体验，在编辑时候所有资源改为本地，加载转在线改为，最后统一发布的时候***
 
 ***2019-08-20  增加音频功能 增加链接下载功能 和视频下载功能***
@@ -35,7 +44,7 @@ https://github.com/RexSuper/RichEditor/tree/master/RichHtmlEditorforAndroid/samp
 最后特别感谢[wasabeef/richeditor-android](https://github.com/wasabeef/richeditor-android "wasabeef/richeditor-android")，因为里面的RichEditor提供了给我全新的思路，来实现这些需求，让我越过了的原生实现的种种困难，
 另外感谢HTML"Mogul" @ZX 让我知道html这些细节坑点 如何实现 ，可以视为它的RichEditor升级补充版
 
-[博客原理讲解--->](https://blog.csdn.net/qq_28844947/article/details/91870015 "")
+
 
 
 
