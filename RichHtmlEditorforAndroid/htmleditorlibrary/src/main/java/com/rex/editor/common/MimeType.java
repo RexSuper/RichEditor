@@ -62,7 +62,11 @@ public enum MimeType {
     )),
 
     WAV("audio/wav", arraySetOf(
-            "wav"
+            "wav",
+            "x-wav"
+    )),
+    X_WAV("audio/x-wav", arraySetOf(
+            "wav","x-wav"
     )),
     MP4("video/mp4", arraySetOf(
             "mp4",

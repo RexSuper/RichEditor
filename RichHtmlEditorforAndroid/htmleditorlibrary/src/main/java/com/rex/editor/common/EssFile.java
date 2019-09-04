@@ -212,7 +212,7 @@ public class EssFile implements Parcelable {
         if (mimeType == null) {
             return false;
         }
-        return mimeType.equals(MimeType.MP3.toString()) || mimeType.equals(MimeType.WAV.toString());
+        return mimeType.equals(MimeType.MP3.toString()) || mimeType.equals(MimeType.WAV.toString())|| mimeType.equals(MimeType.X_WAV.toString());
     }
 
     public boolean isVideo() {
