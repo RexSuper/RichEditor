@@ -3,7 +3,15 @@
 
 
 本编辑器基于静态html实现了客户端编辑器所需要的几乎全部功能及其实际流程所需，包括下载，视频缩略图，自定义标签样式
-自定义点击事件本地资源转网络资源需要改为你自己的服务器）等等 （下面一个实际项目的应用演示）
+自定义点击事件本地资源转网络资源需要改为你自己的服务器）等等 
+
+下面一个实际项目的应用演示
+
+<img src="https://img-blog.csdnimg.cn/20190904180215968.gif" width="50%" height="50%"/>
+
+例子：apk
+
+https://github.com/RexSuper/RichEditor/blob/master/RichHtmlEditorforAndroid/sample/release/release/sample-release.apk
 
 # 集成方式
 
