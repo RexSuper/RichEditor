@@ -20,11 +20,15 @@ import com.rex.richeditor.tools.ChooseDialog.Type;
 import com.rex.richeditor.tools.ChooseDialogData;
 import com.rex.richeditor.tools.EditToolAdapter;
 
+import static com.rex.richeditor.tools.HttpFakeUtils.TEST_IMAGE_URL;
+import static com.rex.richeditor.tools.HttpFakeUtils.TEST_VIDEO_URL;
+import static com.rex.richeditor.tools.HttpFakeUtils.TEST_WEB_URL;
+
 /**
  * @author Rex
- * 编辑部分
+ * 编辑部分 快捷演示
  */
-public class MainActivity extends Activity {
+public class SimpleCallsActivity extends Activity {
 
     private RichEditorNew richEditor;
     private ProgressBar pb;
@@ -33,15 +37,13 @@ public class MainActivity extends Activity {
     private EditToolAdapter editToolAdapter;
     private Context mContext;
     public final static String TAG = "rex";
-    public final static String TEST_VIDEO_URL = "https://www.w3school.com.cn/example/html5/mov_bbb.mp4";
-    public final static String TEST_IMAGE_URL = "http://pic44.nipic.com/20140716/8716187_010828140000_2.jpg";
-    public final static String TEST_WEB_URL = "https://github.com/RexSuper/RichHtmlEditorForAndroid";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mContext = MainActivity.this;
+        mContext = SimpleCallsActivity.this;
         verifyStoragePermissions(this);
         initView();
         initListener();
@@ -64,7 +66,7 @@ public class MainActivity extends Activity {
             public void onTextChange(String message, int lineNumber, String sourceID) {
                 //控制台打印消息 也可以传值
                 if (message != null && message.contains("|")) {
-                    Toast.makeText(MainActivity.this, "message:" + message, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SimpleCallsActivity.this, "message:" + message, Toast.LENGTH_SHORT).show();
                 }
                 Log.i(TAG, "message:" + message);
             }
