@@ -42,7 +42,7 @@ public class SimpleCallsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_simple_call);
         mContext = SimpleCallsActivity.this;
         verifyStoragePermissions(this);
         initView();
@@ -57,7 +57,6 @@ public class SimpleCallsActivity extends Activity {
             public void onTextChange(String text) {
                 pb.setVisibility(View.GONE);
                 Log.i(TAG, "text:" + text);
-
             }
         });
 
@@ -186,35 +185,16 @@ public class SimpleCallsActivity extends Activity {
     }
 
     private void insertAudio() {
-        //默认调用
+        //默认调用 也可以自定义insertAudio(String audioUrl, String custom)
         richEditor.insertAudio(TEST_VIDEO_URL);
-        //自定义
-//        richEditor.insertAudio(TEST_VIDEO_URL,
-//                //增加进度控制
-//                "controls=\"controls\"" +
-//                        //宽高
-//                        "height=\"300\" " +
-//                        //样式
-//                        " style=\"margin-top:10px;max-width:100%;\""
-//        );
     }
 
     private void insertVideo() {
-
-        //默认样式
         richEditor.insertVideo(TEST_VIDEO_URL);
-//        richEditor.insertVideo(TEST_VIDEO_URL,"",TEST_IMAGE_URL);
     }
 
     public void insertImage() {
-        //可按htmlstyle 自定义间距居中等 类似margin-right 不会生效的问题 都是html本身的问题 可用一样的替换方案
-        //实战过程中 本地图片需要先上传到服务器生成url 再调用
-        //默认样式
         richEditor.insertImage(TEST_IMAGE_URL);
-        //自定义
-//        richEditor.insertImage(TEST_IMAGE_URL,
-//                "picvision",
-//                "margin-top:10px;max-width:100%;");
     }
 
     @Override

@@ -30,12 +30,6 @@ import static com.rex.richeditor.tools.HttpFakeUtils.TEST_WEB_URL;
  */
 public class MainActivity extends Activity {
 
-    private RichEditorNew richEditor;
-    private ProgressBar pb;
-    private GridView gvList;
-    private View tools;
-    private EditToolAdapter editToolAdapter;
-    private Context mContext;
     public final static String TAG = "rex";
 
 
@@ -43,7 +37,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mContext = MainActivity.this;
         verifyStoragePermissions(this);
     }
 

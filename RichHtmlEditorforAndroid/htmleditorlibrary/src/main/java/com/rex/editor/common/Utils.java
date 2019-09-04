@@ -45,6 +45,7 @@ public final class Utils {
         Elements elementsAudio = doc.select("audio[src]");
         Elements elementsVideo = doc.select("video[src]");
         Elements elementsFiles = doc.select("a[href]");
+        Elements elementsPosters = doc.select("video[poster]");
 
         elementsSrc.addAll(elementsImg);
         elementsSrc.addAll(elementsAudio);
@@ -59,6 +60,12 @@ public final class Utils {
         for (Element element : elementsFiles) {
             String src = element.attr("href");
             if (!TextUtils.isEmpty(src)&&!src.contains("http")){
+                listData.add(src);
+            }
+        }
+        for (Element element : elementsPosters) {
+            String src = element.attr("poster");
+            if (!TextUtils.isEmpty(src) && !src.contains("http")) {
                 listData.add(src);
             }
         }

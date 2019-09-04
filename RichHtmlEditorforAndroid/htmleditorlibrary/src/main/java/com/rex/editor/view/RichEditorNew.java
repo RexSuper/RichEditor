@@ -1,14 +1,21 @@
 package com.rex.editor.view;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.media.MediaMetadataRetriever;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.webkit.WebChromeClient;
 
 import com.rex.editor.common.CommonJs;
+import com.rex.editor.common.FilesUtils;
 import com.rex.editor.common.Utils;
 
+import java.io.File;
 import java.util.List;
+
+import static com.rex.editor.common.FilesUtils.getVideoThumbnail;
 
 /**
  * @author Rex on 2019/6/20.
@@ -21,6 +28,9 @@ public class RichEditorNew extends RichEditor {
      */
     private boolean isUnableTextChange = false;
     private boolean isNeedSetNewLineAfter = false;
+    //视频缩略图
+    private boolean isNeedAutoPosterUrl = false;
+    public final static String FILE_TAG = "/rich_editor";
 
     public RichEditorNew(Context context) {
         super(context);
@@ -37,6 +47,13 @@ public class RichEditorNew extends RichEditor {
         initConfig();
     }
 
+    public boolean isNeedAutoPosterUrl() {
+        return isNeedAutoPosterUrl;
+    }
+
+    public void setNeedAutoPosterUrl(boolean needAutoPosterUrl) {
+        isNeedAutoPosterUrl = needAutoPosterUrl;
+    }
 
     public void getCurrChooseParams() {
         exec("javascript:RE.getSelectedNode();");
@@ -106,12 +123,10 @@ public class RichEditorNew extends RichEditor {
             alt = "picvision";
             style = "margin-top:10px;max-width:100%;";
         }
-//        focusEditor();
         super.insertImage(url, alt, style);
     }
 
     public void insertHtml(String html) {
-//        focusEditor();
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.insertHTML('" + html + "');");
     }
@@ -165,7 +180,6 @@ public class RichEditorNew extends RichEditor {
     }
 
     public void insertAudio(String audioUrl, String custom) {
-//        focusEditor();
         if (TextUtils.isEmpty(custom)) {
             custom =             //增加进度控制
                     "controls=\"controls\"" +
@@ -180,7 +194,7 @@ public class RichEditorNew extends RichEditor {
 
 
     public void insertVideo(String videoUrl) {
-        insertVideo(videoUrl, "","");
+        insertVideo(videoUrl, "", "");
     }
 
     /**
@@ -189,26 +203,43 @@ public class RichEditorNew extends RichEditor {
      * @param posterUrl   视频默认缩略图
      */
     public void insertVideo(String videoUrl, String customStyle, String posterUrl) {
-//        focusEditor();
         if (TextUtils.isEmpty(customStyle)) {
             customStyle =             //增加进度控制
 //                    "controls=\"controls\"" + //已修改到video标签里面
-                            //视频显示第一帧
+                    //视频显示第一帧
 //                            " initial-time=\"0.01\" " +//客户端无效
-                            //宽高
-                            "height=\"300\" " +
+                    //宽高
+                    "height=\"300\" " +
                             //样式
                             " style=\"margin-top:10px;max-width:100%;\"";
         }
 
+        if (TextUtils.isEmpty(posterUrl) && isNeedAutoPosterUrl) {
+            Bitmap videoThumbnail = getVideoThumbnail(videoUrl);
+            if (videoThumbnail != null) {
+                String videoThumbnailUrl = FilesUtils.saveBitmap(videoThumbnail);
+                if (!TextUtils.isEmpty(videoThumbnailUrl)) {
+                    posterUrl = videoThumbnailUrl;
+                }
+            }
+
+        }
+
 
         System.out.println("videoUrl = [" + videoUrl + "], custom = [" + customStyle + "]");
+        System.out.println("videoUrl getAbsolutePath = [" + new File(videoUrl).getAbsolutePath() + "]");
         exec("javascript:RE.prepareInsert();");
-        exec("javascript:RE.insertVideo('" + videoUrl + "', '" + customStyle+ "', '" + posterUrl + "');");
+        exec("javascript:RE.insertVideo('" + videoUrl + "', '" + customStyle + "', '" + posterUrl + "');");
     }
+
+
     // 获取html本地的地址 方便上传的时候转为在线的地址
     public List<String> getAllSrcAndHref() {
-       return Utils.getHtmlSrcOrHrefList(getHtml());
+        return Utils.getHtmlSrcOrHrefList(getHtml());
+    }
+
+    public void clearLocalRichEditorCache() {
+        FilesUtils.clearLocalRichEditorCache();
     }
 
 }

@@ -14,17 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.rex.richeditor.tools;
+package com.rex.editor.common;
 
-import android.content.ContentResolver;
-import android.net.Uri;
 import android.support.v4.util.ArraySet;
-import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
 
 import java.util.Arrays;
 import java.util.EnumSet;
-import java.util.Locale;
 import java.util.Set;
 
 /**
@@ -130,31 +125,4 @@ public enum MimeType {
         return mMimeTypeName;
     }
 
-    public boolean checkType(ContentResolver resolver, Uri uri) {
-        MimeTypeMap map = MimeTypeMap.getSingleton();
-        if (uri == null) {
-            return false;
-        }
-        String type = map.getExtensionFromMimeType(resolver.getType(uri));
-        String path = null;
-        // lazy load the path and prevent resolve for multiple times
-        boolean pathParsed = false;
-        for (String extension : mExtensions) {
-            if (extension.equals(type)) {
-                return true;
-            }
-            if (!pathParsed) {
-                // we only resolve the path for one time
-                path = PhotoMetadataUtils.getPath(resolver, uri);
-                if (!TextUtils.isEmpty(path)) {
-                    path = path.toLowerCase(Locale.US);
-                }
-                pathParsed = true;
-            }
-            if (path != null && path.endsWith(extension)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

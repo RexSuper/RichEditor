@@ -1,6 +1,6 @@
 package com.rex.richeditor.tools;
 
-import android.webkit.MimeTypeMap;
+import com.rex.editor.common.EssFile;
 
 /**
  * @author Rex on 2019/9/3.
@@ -11,82 +11,37 @@ public class HttpFakeUtils {
     public final static String TEST_VIDEO_URL = "https://www.w3school.com.cn/example/html5/mov_bbb.mp4";
     public final static String TEST_IMAGE_URL = "http://pic44.nipic.com/20140716/8716187_010828140000_2.jpg";
     public final static String TEST_WEB_URL = "https://github.com/RexSuper/RichHtmlEditorForAndroid";
+    public final static String TEST_VIDEOTHUMBNAIL_URL = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1568188445&di=7adf93be0afc08663f4950934f6976ec&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201707%2F14%2F20170714172302_MTvSB.png";
 
-    public interface HttpResult{
-      void  onSuccess(String url);
-      void  onError(String error);
+    public interface HttpResult {
+        void onSuccess(String url);
+
+        void onError(String error);
     }
-    public static void  postFile(String localUrl,HttpResult httpResult){
+
+    public static void postFile(EssFile essFile, HttpResult httpResult) {
         if (httpResult != null) {
-            if (isGif(localUrl)||isImage(localUrl)){
-                httpResult.onSuccess(TEST_IMAGE_URL);
-            }
-            else if (isVideo(localUrl)){
+            if (essFile.isGif() || essFile.isImage()) {
+                if (essFile.getAbsolutePath().contains("poster")) {
+                    httpResult.onSuccess(TEST_VIDEOTHUMBNAIL_URL);
+                } else {
+                    httpResult.onSuccess(TEST_IMAGE_URL);
+                }
+
+            } else if (essFile.isVideo()) {
                 httpResult.onSuccess(TEST_VIDEO_URL);
-            }else {
+            } else {
                 httpResult.onSuccess(TEST_VIDEO_URL);
             }
         }
     }
 
-
-    public static boolean isImage(String localUrl) {
-        String mimeType =  getMimeType(localUrl);
-        if (mimeType == null) return false;
-        return mimeType.equals(MimeType.JPEG.toString())
-                || mimeType.equals(MimeType.PNG.toString())
-                || mimeType.equals(MimeType.GIF.toString())
-                || mimeType.equals(MimeType.BMP.toString())
-                || mimeType.equals(MimeType.WEBP.toString());
-    }
-
-    public static  boolean isGif(String localUrl) {
-        String mimeType =  getMimeType(localUrl);
-        if (mimeType == null) return false;
-        return mimeType.equals(MimeType.GIF.toString());
-    }
-
-    /**
-     * 获取文件的MIME类型
-     */
-    public static String getMimeType(String pathOrUrl) {
-        String ext = getExtension(pathOrUrl);
-        MimeTypeMap map = MimeTypeMap.getSingleton();
-        String mimeType;
-        if (map.hasExtension(ext)) {
-            mimeType = map.getMimeTypeFromExtension(ext);
-        } else {
-            mimeType = "*/*";
+    public static void publishArticle(String html, HttpResult httpResult) {
+        if (httpResult != null) {
+            httpResult.onSuccess("发布成功");
         }
-        return mimeType;
-    }
-
-    /**
-     * 获取文件后缀,不包括“.”
-     */
-    public static String getExtension(String pathOrUrl) {
-        int dotPos = pathOrUrl.lastIndexOf('.');
-        if (0 <= dotPos) {
-            return pathOrUrl.substring(dotPos + 1);
-        } else {
-            return "ext";
-        }
-    }
-
-
-    public static boolean isVideo(String localUrl) {
-
-        String mimeType =  getMimeType(localUrl);
-        if (mimeType == null) return false;
-        return mimeType.equals(MimeType.MPEG.toString())
-                || mimeType.equals(MimeType.MP4.toString())
-                || mimeType.equals(MimeType.QUICKTIME.toString())
-                || mimeType.equals(MimeType.THREEGPP.toString())
-                || mimeType.equals(MimeType.THREEGPP2.toString())
-                || mimeType.equals(MimeType.MKV.toString())
-                || mimeType.equals(MimeType.WEBM.toString())
-                || mimeType.equals(MimeType.TS.toString())
-                || mimeType.equals(MimeType.AVI.toString());
 
     }
+
+
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.webkit.DownloadListener;
 import android.webkit.URLUtil;
@@ -32,9 +33,12 @@ public class ShowHtmlActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_html);
 
+        Toast.makeText(this, "以上为模拟在线图片效果", Toast.LENGTH_SHORT).show();
         //下载权限需要
         verifyStoragePermissions(this);
         String html = getIntent().getStringExtra("html");
+
+        Log.i("rex", "html：" + html);
         boolean isPublish = getIntent().getBooleanExtra("isPublish", true);
         RichEditorNew richEditor = findViewById(R.id.richEditor);
         TextView tvHtmlCode = findViewById(R.id.tvHtmlCode);
