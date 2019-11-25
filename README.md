@@ -1,6 +1,10 @@
 # Android富文本编辑器 说明
 [博客部分原理讲解--->](https://blog.csdn.net/qq_28844947/article/details/91870015 "")
 
+*****************************************************
+最近大家有个问题问的比较多，就是如何把已有的html二次编辑，其实直接setHtml就好了，获取是get 放进去就是set,load的方式其实就是走webview本身的效果了
+https://github.com/RexSuper/RichEditor/issues/9
+*****************************************************
 
 本编辑器基于静态html实现了客户端编辑器所需要的几乎全部功能及其实际流程所需，包括下载，视频缩略图，自定义标签样式
 自定义点击事件本地资源转网络资源需要改为你自己的服务器）等等 
@@ -249,7 +253,8 @@ public class ActualDemoActivity extends AppCompatActivity {
             richEditor.setVisibility(View.VISIBLE);
             //为图片加上点击事件 Js
             //不可编辑 预览模式
-            richEditor.loadRichEditorCode(html);
+            richEditor .loadRichEditorCode(html);
+	    //可编辑 richEditor.setHtml(html)
             richEditor.setOnClickImageTagListener(new RichEditor.OnClickImageTagListener() {
                 @Override
                 public void onClick(String url) {
